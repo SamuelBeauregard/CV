@@ -1,0 +1,195 @@
+---
+name: Samuel
+surname: Beauregard-Tousignant
+position: "M. Sc"
+pronouns: he/him
+address: "Montreal"
+phone: 819-968-9459
+#www: mariecurie.com
+email: "samuel.beauregard.t@gmail.com"
+#twitter: mariecurie
+github: SamuelBeauregard
+linkedin: Samuel beauregard-tousignant
+#date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Some stuff about me
+
+ * I'm passionate about microorganisms and the subsurface 
+ * I have specialized myself in HGAM, and really like uncovering patterns in big data sets using statistics (multivariate and univariate).
+ * I taught highschool science and microbiology in college.
+
+# Education
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+
+require(xfun)
+
+packages <- c('vitae'     # The CV's LaTeX Template
+             ,'tibble'    # Data structure for tribbles
+             ,'magrittr'  # The Pipe %>%
+             ,'here'      # Relative File Paths
+             ,'readr'     # Data Loading
+             ,'glue'      # String Manipulation
+            )
+
+xfun::pkg_attach2(packages, message = FALSE)
+
+source(file = here::here("C:/Users/Owner/OneDrive - UQAM/Documents/vie/biostats/vitae/script_cv/","info.R"))
+#"C:\Users\Owner\OneDrive - UQAM\Documents\vie\biostats\vitae\script_cv\info.R"
+```
+
+# Employment
+
+```{r}
+
+work %>%
+  detailed_entries(
+    with = title,
+    what = unit,
+    why = detail,
+    when = glue::glue("{startMonth} {startYear} --> {endMonth} {endYear}",.na = ""),
+    where = where
+  )
+
+```
+
+\pagebreak
+
+# Education
+
+```{r EDUCATION}
+
+edu %>%
+  detailed_entries(
+    with = inst,
+    what = degree,
+    why = detail,
+    when = glue::glue("{startYear} --> {endYear}",.na = ""),
+    where = where
+  )
+
+```
+
+# Skills
+
+```{r SKILLS}
+
+skills %>%
+  detailed_entries(
+    with = area,
+    what = skills
+  )
+
+```
+
+# Honors
+
+```{r HONORS}
+
+honors %>%
+  detailed_entries(
+    with = area,
+    what = accomplishment,
+    why = detail,
+    when = year,
+    where = where
+  )
+
+```
+
+\pagebreak
+
+# Projects
+
+```{r PROJECTS}
+
+projects %>%
+  detailed_entries(
+    with = area,
+    what = accomplishment,
+    why = detail,
+    when = year,
+    where = where
+  )
+
+```
+
+# Works
+
+```{r WORKS}
+
+works %>%
+  detailed_entries(
+    with = area,
+    what = accomplishment,
+    why = detail,
+    when = year,
+    where = where
+  )
+
+```
+
+# Certifications
+
+```{r CERTIFICATIONS}
+
+certifications %>%
+  detailed_entries(
+    with = area,
+    what = accomplishment,
+    why = detail,
+    when = year,
+    where = where
+  )
+
+```
+
+\pagebreak
+
+<!-- ```{r} -->
+<!-- library(tibble) -->
+<!-- tribble( -->
+<!--   ~ Degree, ~ Year, ~ Institution, ~ Where, -->
+<!--   "Bachelors", "2018-21", "UQAM", "Montreal, Quebec", -->
+<!--   "M. Sc in biological sciences", "expected end: January 2025", "UQAM", "Montreal, Quebec", -->
+<!-- ) %>% -->
+<!--   detailed_entries(Degree, Year, Institution, Where) -->
+<!-- ``` -->
+
+<!-- # Nobel Prizes -->
+
+<!-- ```{r} -->
+<!-- # tribble( -->
+<!-- #   ~Year, ~Type, ~Desc, -->
+<!-- #   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel", -->
+<!-- #   1911, "Chemistry", "Awarded for the discovery of radium and polonium" -->
+<!-- # ) %>% -->
+<!-- #   brief_entries( -->
+<!-- #     glue::glue("Nobel Prize in {Type}"), -->
+<!-- #     Year, -->
+<!-- #     Desc -->
+<!-- #   ) -->
+<!-- ``` -->
+
+<!-- # Publications -->
+
+<!-- ```{r} -->
+<!-- library(dplyr) -->
+<!-- knitr::write_bib(c("vitae", "tibble"), "packages.bib") -->
+
+<!-- bibliography_entries("packages.bib") %>% -->
+<!--   arrange(desc(author$family), issued) -->
+<!-- ``` -->
