@@ -1,7 +1,7 @@
 ---
 name: Samuel
 surname: Beauregard-Tousignant
-position: "M. Sc"
+position: "M. Sc biology"
 pronouns: he/him
 address: "Montreal"
 phone: 819-968-9459
